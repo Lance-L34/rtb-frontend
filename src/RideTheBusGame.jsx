@@ -77,6 +77,22 @@ const handleCreateRoom = () => {
 
 
   return (
+
+    <input
+      type="text"
+      placeholder="Username"
+      value={username}
+      onChange={(e) => setUsername(e.target.value)}
+    />
+    <input
+      type="text"
+      placeholder="Room Code"
+      value={room}
+      onChange={(e) => setRoom(e.target.value)}
+    />
+    <button onClick={handleJoinRoom}>Join Room</button>
+    <button onClick={handleCreateRoom}>Create Room</button>
+
     <div className="p-6 max-w-xl mx-auto space-y-4">
       {!inRoom ? (
         <div className="space-y-4">
