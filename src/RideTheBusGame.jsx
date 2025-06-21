@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
+
 const socket = io("https://rtb-backend1.onrender.com");
 
 export default function RideTheBusGame() {
@@ -13,6 +14,7 @@ export default function RideTheBusGame() {
   const [card, setCard] = useState(null);
   const [message, setMessage] = useState('');
   const [yourTurn, setYourTurn] = useState(false);
+ 
 
   useEffect(() => {
     socket.on('roomJoined', ({ players }) => {
