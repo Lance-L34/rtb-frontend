@@ -59,6 +59,23 @@ export default function RideTheBusGame() {
     socket.emit('guess', { room, username, guess, step });
   };
 
+  const handleJoinRoom = () => {
+  if (username && room) {
+    socket.emit('joinRoom', { username, room });
+    setInRoom(true);
+  }
+};
+
+const handleCreateRoom = () => {
+  if (username) {
+    const generatedRoom = Math.random().toString(36).substr(2, 6).toUpperCase();
+    setRoom(generatedRoom);
+    socket.emit('createRoom', { username, room: generatedRoom });
+    setInRoom(true);
+  }
+};
+
+
   return (
     <div className="p-6 max-w-xl mx-auto space-y-4">
       {!inRoom ? (
